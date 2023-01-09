@@ -1,0 +1,98 @@
+{
+    "root": {
+        "data": {
+            "id": "cpnkjm8ug0o0",
+            "created": 1673258245653,
+            "text": "typescritp"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "cpnkjt5vp7k0",
+                    "created": 1673258260711,
+                    "text": "基本类型"
+                },
+                "children": []
+            },
+            {
+                "data": {
+                    "id": "cpnkk20zgeo0",
+                    "created": 1673258280006,
+                    "text": "数组类型"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cpnkk58w0g80",
+                            "created": 1673258287014,
+                            "text": "string[]"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cpnkkacoa140",
+                            "created": 1673258298127,
+                            "text": "Array<string>"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "cpnklw7h1c80",
+                            "created": 1673258424066,
+                            "text": "元组"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cpnkm0awezk0",
+                                    "created": 1673258432982,
+                                    "text": "[number,string]"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "cpnkmozkd2o0",
+                    "created": 1673258486715,
+                    "text": "类型推断（注解省略）"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "cpnkmwkq07s0",
+                            "created": 1673258503231,
+                            "text": "声明变量并初始化"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "cpnkn9en0lk0",
+                                    "created": 1673258531162,
+                                    "text": "let name='zhang'"
+                                },
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "data": {
+                            "id": "cpnkn860h1k0",
+                            "created": 1673258528463,
+                            "text": "函数返回值"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-blue",
+    "version": "1.4.43"
+}
