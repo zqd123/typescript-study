@@ -12,3 +12,5 @@ pnpm install @types/node
 ```
 - vscode安装Code Runner插件
 - 点击右上角运行按钮
+
+## 2.typescript
