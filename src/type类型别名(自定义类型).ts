@@ -8,3 +8,9 @@ type CustomArray = (string|number)[];
 let arr1:CustomArray = [1,'2']
 let arr2:CustomArray = ['1','2']
 console.log(arr1, arr2); 
+
+type obj = {
+    name:string
+    age:number
+    sayHi():void
+}

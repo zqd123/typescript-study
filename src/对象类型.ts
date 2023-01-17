@@ -22,6 +22,8 @@ const obj1:{
 }
 
 // 对象可选属性
-function myAxios(config:{url:string;method:string}){
+function myAxios(config:{url:string;method?:string}){
     console.log(config)
 }
+myAxios({url:'/login'})
+myAxios({url:'/login',method:'get'})

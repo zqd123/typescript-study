@@ -3,4 +3,4 @@
 // 只限制了数组元素类型，但没限制个数
 const arr:number[] = [36.5,77.8,88.9] 
 //下面是元组，限制了每个元素类型，元素个数
-const arr2:[number,number] = [33,66]
+const arr22:[number,number] = [33,66]
