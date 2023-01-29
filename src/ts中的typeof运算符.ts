@@ -21,3 +21,11 @@ formatPoint1({x:1,y:3})
  * 2.typeof出现在类型注解的位置（参数名称的冒号后面）所处的环境就在类型上下文（区别于js代码）
  * 3.注意：typeof只能用来查询变量或属性的类型，无法查询其他形式的类型（比如，函数调用的类型）。
  */
+let num3:typeof p.x
+
+function addNum(num1:number,num2:number){
+  return num1+num2;
+}
+
+// 错误： let num4:typeof addNum(1,2)
+
