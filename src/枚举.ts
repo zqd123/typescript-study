@@ -10,6 +10,9 @@ function changeDirection(direction:Direction){
 }
 changeDirection(Direction.up)
 
+/**
+ * 枚举成员是有值的，默认为：从0开始自增的数值
+ */
 enum ErrorShowType {
     SILENT,
     WARN = 1<<1,
