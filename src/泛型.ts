@@ -53,4 +53,40 @@ function id4<T extends ILength>(v:T):T{
     return v
 }
 id4("12")
-id4(123)
+// id4(123) //error:类型“number”的参数不能赋给类型“ILength”的参数
+id4({length:10,name:'z'})//只要有length属性就可以
+/**
+ * 解释：
+ * 1.创建描述约束的接口Ilength，该接口要求提供length属性。
+ * 2.通过extends关键字使用该接口，为泛型（类型变量）添加约束。
+ * 3.该约束标识：传入的类型必须具有length属性。
+ * 注意：传入的实参（比如，数组）只要有length属性即可，这也符合前面讲到的接口的兼容性。
+ */
+
+
+//------------------------------------------------------------------------------------------------
+
+/**
+ * 多个泛型类型变量
+ */
+// 比如，创建一个函数来获取对象中属性的值：
+function getPerson<T,K extends keyof T>(obj:T,key:K):void{
+    console.log(obj[key])
+}
+const per1 = {name:'zz',age:22}
+getPerson(per1,'name')
+// getPerson(per1,'name1')//error:类型“"name1"”的参数不能赋给类型“"name" | "age"”的参数。
+//一下补充内容，了解就可以
+getPerson(18,'toFixed')
+getPerson('abc','toString')
+getPerson('abc',1)
+getPerson(['a','v','d'],2)
+getPerson([1,3,4],3)
+
+/**
+ * 解释：
+ * 1.添加了第二个类型变量key，两个类型变量之间使用（，）逗号分隔。
+ * 2.keyof关键字接收一个对象类型，生成其键名称（可能是字符串或数字）的联合类型。
+ * 3.本示例中keyof T实际上获取的是person对象所有键的联合类型，也就是：'name' | 'age'。
+ * 4.类型变量K受T约束，可以理解为：K只能是T所有键中的任意一个，或者说只能访问对象中存在的属性。
+ */
