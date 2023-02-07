@@ -76,7 +76,7 @@ function getPerson<T,K extends keyof T>(obj:T,key:K):void{
 const per1 = {name:'zz',age:22}
 getPerson(per1,'name')
 // getPerson(per1,'name1')//error:类型“"name1"”的参数不能赋给类型“"name" | "age"”的参数。
-//一下补充内容，了解就可以
+//以下补充内容，了解就可以
 getPerson(18,'toFixed')
 getPerson('abc','toString')
 getPerson('abc',1)
@@ -90,3 +90,75 @@ getPerson([1,3,4],3)
  * 3.本示例中keyof T实际上获取的是person对象所有键的联合类型，也就是：'name' | 'age'。
  * 4.类型变量K受T约束，可以理解为：K只能是T所有键中的任意一个，或者说只能访问对象中存在的属性。
  */
+
+//---------------------------------------------------------------------------------------
+/**
+ * 泛型接口：接口也可以配合泛型来使用，以增加其灵活性，增强其复用性。
+ */
+interface IdFunc<T>{
+    id:(value:T)=>T;
+    ids:()=>T[];
+}
+let obj:IdFunc<number>={
+    id(value){
+        return value
+    },
+    ids() {
+        return [1,2,3]
+    },
+}
+obj.id(1)
+obj.ids()
+/**
+ * 解释：
+ * 1.在接口名称的后面添加<类型变量>，那么这个接口就变成了泛型接口。
+ * 2.接口的类型变量，对接口中所有其他成员可见，也就是接口中所有成员都可以使用类型变量。
+ * 3.使用泛型接口时，需要显示指定具体的类型（比如，此处的IdFunc<number>）。
+ * 4.此时，id方法的参数和返回值类型都是number；ids方法的返回值类型是number[]。
+ */
+//---------------------------------------------------------------------------------------
+/**
+ * 数组是泛型接口：实际上，js中的数组在ts中就是一个泛型接口(interface Array<T>{})。
+ */
+const strs:Array<string> = ['a','b','c']//Array<string>这不就是泛型接口的使用方式嘛
+strs.forEach(item=>item)//forEach(callbackfn: (value: T, index: number, array: T[]) => void, thisArg?: any): void;
+
+const nums = [1,2,3]//类型推论
+nums.forEach(item=>item)
+/**
+ * 解释：当我们在使用数组时，ts会根据数组的不同类型，来自动将类型变量设置为相应的类型。
+ * 技巧：可以通过ctrl+鼠标左键（Mac：option+鼠标左键）来查看具体的类型信息。
+ */
+//---------------------------------------------------------------------------------------
+/**
+ * 泛型类：
+ */
+// 创建泛型类：
+class GenericNumber<NumType>{
+    defaultValue:NumType;
+    add:(x:NumType,y:NumType)=>NumType;
+    constructor(vl:NumType){ 
+        this.defaultValue = vl    
+    }
+}   
+/**
+ * 解释：
+ * 1.类似于泛型接口，在class名称后面添加<类型变量>，这个类就变成了泛型类。
+ * 2.此处的add方法，采用的是函数形式的类型书写方式。
+ */
+const myNum = new GenericNumber<number>(1);
+myNum.defaultValue=10;
+// 类似于泛型接口，在创建class实例时，在类名后面通过<类型>来指定明确的类型。
+const myNum1 = new GenericNumber(2)//有constructor，实例化时，可以省略指定类型变量<类型>
+myNum.defaultValue = 22
+//---------------------------------------------------------------------------------------
+/**
+ * 泛型工具类型：ts内置了一些常用的工具类型，来简化ts中的一些常见操作。
+ * 说明：他们都是基于泛型实现的（泛型适用于多种类型，更加通用），并且是内置的，可以直接在代码中使用。
+ * 这些工具类型有很多，主要学习以下几个：
+ * 1.Partial<Type>
+ * 2.Readonly<Type>
+ * 3.Pick<Type,Keys>
+ * 4.Record<Keys,Type>
+ */
+//TODO
